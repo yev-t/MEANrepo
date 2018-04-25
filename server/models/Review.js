@@ -11,8 +11,8 @@ var ReviewSchema = new mongoose.Schema({
 	star_rating: {
 		type:Number,
 		required:[true, "Star rating is required"],
-		minl:[1, "Star rating needs to be between 1 and 5"],
-		maxl:[5, "Star rating needs to be between 1 and 5"]
+		min:[1, "Star rating needs to be between 1 and 5"],
+		max:[5, "Star rating needs to be between 1 and 5"]
 	},
 	review: {
 		type:String,
