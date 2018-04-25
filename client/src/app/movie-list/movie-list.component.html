@@ -1,0 +1,33 @@
+<div class="container border">
+	<div class="row p-2">
+		<h3 class="col-9 ">Movie List</h3>
+		<input type="submit" class="col 3 bg-info" value="Add a new movie" [routerLink]="['new']">
+	</div>
+	<div class="row bg-secondary text-white">
+		<div class="col-5 border">
+			<h6>Movie title</h6>
+		</div>
+		<div class="col-2 border">
+			<h6>Average rating</h6>
+		</div>
+		<div class="col-5 border">
+			<h6>Actions available</h6>
+		</div>
+	</div>
+	<div *ngIf="all_movies">
+		<div *ngFor="let movie of all_movies">
+			<div class="row ">
+			    <div class="col-5 border">
+		      		{{ movie.title }}
+			    </div>
+			    <div class="col-2 border">
+		      		{{ movie.average_rating }}
+			    </div>
+			    <div class="col-5 border">
+			    	<input class="bg-success" type="submit" [routerLink]="['../movies', movie._id]" value="Read reviews">
+			    	<input class="bg-info" type="submit" [routerLink]="['review/'+ movie._id]" value="Write review">
+			    </div>
+		  	</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,72 @@
+<div class="border container">
+	<div class="row p-2">
+		<div class="col-1"></div>
+		<h3>Submit a movie and your review</h3>
+	</div>
+	<div class="row">
+		<div class="col-1"></div>
+		<p *ngIf="!title.valid && !title.pristine">Movie title is required and must be between 3-255 characters</p>
+	</div>
+	<div class="row">
+		<div class="col-1"></div>
+		<p *ngIf="!name.valid && !name.pristine">Name is required and must be between 3-255 characters</p>
+	</div>
+	<div class="row">
+		<div class="col-1"></div>
+		<p *ngIf="!starrating.valid && !starrating.pristine">Star rating is required and must be between 1-5 characters</p>
+	</div>
+	<div class="row">
+		<div class="col-1"></div>
+		<p *ngIf="!review.valid && !review.pristine">Review is required and must be between 3-255 characters</p>
+	</div>
+	<div class="row p-2">
+		<div class="col-1"></div>
+		<div class="col-3">
+			<h6>Movie title:</h6><br>
+			<h6>Your name:</h6><br>
+			<h6>Stars:</h6><br>
+			<h6>Your review:</h6><br>	
+		</div>
+		<div class="col-7">
+			<input type="text" name="my_movie.title"
+				[(ngModel)]="my_movie.title"
+				required
+				minlength="3"
+				maxlength="255"
+				#title="ngModel" 
+			><br><br>
+			<input type="text" name="my_review.name"
+				[(ngModel)]="my_review.name"
+				required
+				minlength="3"
+				maxlength="255"
+				#name="ngModel"
+			><br><br>
+			<input type="number" name="my_review.star_rating"
+				[(ngModel)]="my_review.star_rating"
+				required
+				min="1"
+				max="5"
+				#starrating="ngModel" 
+			><br><br>
+			<textarea type="textarea" rows="5" cols="50" name="my_review.review"
+				[(ngModel)]="my_review.review"
+				required
+				minlength="3"
+				maxlength="255"
+				#review="ngModel" 
+			></textarea>
+		</div>
+	</div>
+	<div class="row p-2">
+		<div class="col-3"></div>
+		<form class="col-2" (submit)="create_movie()">
+			<input class="bg-info" type="submit" name="Submit movie and review"
+				[disabled]="!(title.valid && name.valid && starrating.valid && review.valid)"
+			>
+		</form>
+		<div class="col-1"></div>
+		<button class="bg-warning" [routerLink]="['']">Cancel</button>
+		<div class="col-2"></div>
+	</div>
+</div>

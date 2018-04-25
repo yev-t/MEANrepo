@@ -1,0 +1,46 @@
+
+<div class="container border">
+	<div class="row p-2">
+		<h3 class="col-9" *ngIf="movie">Reviews for {{ movie.title }}</h3>
+		<input class="bg-info" type="submit" [routerLink]="['']" value="Back to movie list">
+	</div>
+	<div class="row m-2" >
+		<form (submit)="delete_movie(movie._id)">
+			<input class="bg-danger" type="submit" value="Delete movie">
+		</form>
+	</div>
+	<div class="row bg-secondary text-white">
+		<div class="col-3 border">
+			<h6>Reviewer</h6>
+		</div>
+		<div class="col-2 border">
+			<h6>Stars</h6>
+		</div>
+		<div class="col-5 border">
+			<h6>Review</h6>
+		</div>
+		<div class="col-2 border">
+			<h6>Actions</h6>
+		</div>
+	</div>
+	<div *ngIf="reviews">
+		<div *ngFor="let review of reviews">
+			<div class="row ">
+			    <div class="col-3 border">
+		      		{{ review.name }}
+			    </div>
+			    <div class="col-2 border">
+		      		{{ review.star_rating }}
+			    </div>
+			    <div class="col-5 border">
+			    	{{ review.review }}
+			    </div>
+			    <div class="col-2 border">
+			    	<form (submit)="delete_review(review._id, movie._id)">
+			    		<input class="bg-danger" type="submit" value="Delete review">
+			    	</form>
+			    </div>
+		  	</div>
+		</div>
+	</div>
+</div>
