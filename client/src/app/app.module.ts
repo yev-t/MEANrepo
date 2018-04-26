@@ -13,6 +13,7 @@ import { NewMovieComponent } from './new-movie/new-movie.component';
 
 import { MovieService } from './movie.service';
 import { ReviewService } from './review.service';
+import { NumberValidationDirective } from './number-validation.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReviewService } from './review.service';
     MovieListComponent,
     ReviewsComponent,
     NewReviewComponent,
-    NewMovieComponent
+    NewMovieComponent,
+    NumberValidationDirective
   ],
   imports: [
     BrowserModule,

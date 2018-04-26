@@ -7,11 +7,11 @@
 		<div class="col-1"></div>
 		<p *ngIf="!name.valid && !name.pristine">Name is required and must be between 3-255 characters</p>
 	</div>
-	<div class="row">
+<!-- 	<div class="row">
 		<div class="col-1"></div>
 		<p *ngIf="!starrating.valid && !starrating.pristine">Star rating is required and must be between 1-5 characters</p>
 	</div>
-	<div class="row">
+ -->	<div class="row">
 		<div class="col-1"></div>
 		<p *ngIf="!review.valid && !review.pristine">Review is required and must be between 3-255 characters</p>
 	</div>
@@ -30,13 +30,20 @@
 				maxlength="255"
 				#name="ngModel"
 			><br><br>
-			<input type="number" name="review.star_rating"
+			<select [(ngModel)]="my_review.star_rating">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select><br><br>
+<!-- 			<input type="number" name="review.star_rating"
 				[(ngModel)]="my_review.star_rating"
 				required
 				min="1"
 				max="5"
 				#starrating="ngModel"
-			><br><br>
+			><br><br> -->
 			<textarea type="textarea" rows="5" cols="50" name="review.review"
 				 [(ngModel)]="my_review.review"
 				 required
@@ -50,7 +57,7 @@
 		<div class="col-3"></div>
 		<form class="col-2" (submit)="create_review()">
 			<input class="bg-info" type="submit" name="Submit review"
-				[disabled]="!(name.valid && starrating.valid && review.valid)"
+				[disabled]="!(name.valid &&  review.valid)"
 			>
 		</form>
 		<div class="col-1"></div>

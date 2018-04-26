@@ -11,6 +11,7 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
 export class NewReviewComponent implements OnInit {
 
 	private movie:any;
+  private star_rating_valid:any;
 	private feedback:any;
 	private my_review={
 		name:"",
